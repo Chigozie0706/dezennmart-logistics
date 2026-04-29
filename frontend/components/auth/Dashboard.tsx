@@ -1,7 +1,7 @@
 "use client";
 
 import Sidebar from "./Sidebar";
-import StatCards from "./Statcards";
+import StatCards from "./StatCards";
 import DeliveryStatusChart from "./DeliveryStatusChart";
 import LineChartWidget from "./LineChartWidget";
 import TopRiders from "./TopRiders";
@@ -9,109 +9,34 @@ import MapWidget from "./MapWidget";
 
 export default function Dashboard() {
   return (
-    <div
-      style={{
-        display: "flex",
-        height: "100vh",
-        background: "#0f0f0f",
-        fontFamily: "'DM Sans',sans-serif",
-        color: "#e0e0e0",
-        overflow: "hidden",
-      }}
-    >
+    <div className="flex h-screen bg-[#0f0f0f] text-[#e0e0e0] overflow-hidden font-[var(--font-dm)]">
       <Sidebar />
 
-      <div
-        style={{
-          flex: 1,
-          display: "flex",
-          flexDirection: "column",
-          overflow: "hidden",
-        }}
-      >
+      <div className="flex-1 flex flex-col overflow-hidden">
         {/* Topbar */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: "20px 28px",
-            borderBottom: "1px solid #1e1e1e",
-            flexShrink: 0,
-          }}
-        >
-          <h1
-            style={{
-              fontFamily: "'Syne',sans-serif",
-              fontWeight: 700,
-              fontSize: 26,
-              color: "#f0f0f0",
-            }}
-          >
+        <div className="flex items-center justify-between px-7 py-5 border-b border-[#1e1e1e] shrink-0">
+          <h1 className="font-[var(--font-syne)] font-bold text-[26px] text-[#f0f0f0]">
             Dashboard
           </h1>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              background: "#1a1a1a",
-              border: "1px solid #2a2a2a",
-              borderRadius: 10,
-              padding: "8px 14px",
-              gap: 8,
-              width: 280,
-            }}
-          >
-            <span style={{ color: "#555", fontSize: 14 }}>🔍</span>
+          <div className="flex items-center bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl px-3.5 py-2 gap-2 w-[280px]">
+            <span className="text-[#555] text-sm">🔍</span>
             <input
               placeholder="Search"
-              style={{
-                background: "none",
-                border: "none",
-                outline: "none",
-                color: "#aaa",
-                fontSize: 13,
-                fontFamily: "'DM Sans',sans-serif",
-                width: "100%",
-              }}
+              className="bg-transparent border-none outline-none text-[#aaa] text-sm font-[var(--font-dm)] w-full"
             />
           </div>
         </div>
 
         {/* Scrollable content */}
-        <div
-          style={{
-            flex: 1,
-            overflowY: "auto",
-            padding: "24px 28px",
-            display: "flex",
-            flexDirection: "column",
-            gap: 20,
-          }}
-        >
-          {/* Stat cards */}
+        <div className="flex-1 overflow-y-auto px-7 py-6 flex flex-col gap-5">
           <StatCards />
 
-          {/* Charts row */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1.1fr 1fr",
-              gap: 14,
-            }}
-          >
+          <div className="grid grid-cols-2 gap-3.5">
             <DeliveryStatusChart />
             <LineChartWidget />
           </div>
 
-          {/* Bottom row */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1.4fr",
-              gap: 14,
-            }}
-          >
+          <div className="grid grid-cols-[1fr_1.4fr] gap-3.5">
             <TopRiders />
             <MapWidget />
           </div>

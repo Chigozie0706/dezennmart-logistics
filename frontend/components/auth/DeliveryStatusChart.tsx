@@ -19,42 +19,21 @@ const MAX = 40,
   GAP = 3,
   GW = (BW + GAP) * 4;
 
+const legends = [
+  { key: "pending", color: "#3b82f6", label: "Pending" },
+  { key: "pickedUp", color: "#f59e0b", label: "Picked Up" },
+  { key: "inTransit", color: "#22c55e", label: "In Transit" },
+  { key: "delivered", color: "#84cc16", label: "Delivered" },
+];
+
 export default function DeliveryStatusChart() {
   return (
-    <div
-      style={{
-        background: "#1a1a1a",
-        border: "1px solid #222",
-        borderRadius: 14,
-        padding: "18px 20px",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginBottom: 16,
-        }}
-      >
-        <span
-          style={{
-            fontFamily: "'Syne',sans-serif",
-            fontWeight: 600,
-            fontSize: 14,
-            color: "#e0e0e0",
-          }}
-        >
+    <div className="bg-[#1a1a1a] border border-[#222] rounded-2xl p-5">
+      <div className="flex justify-between items-center mb-4">
+        <span className="font-[var(--font-syne)] font-semibold text-sm text-[#e0e0e0]">
           Deliveries Status Chart
         </span>
-        <span
-          style={{
-            color: "#555",
-            cursor: "pointer",
-            fontSize: 18,
-            letterSpacing: 2,
-          }}
-        >
+        <span className="text-[#555] cursor-pointer text-lg tracking-widest">
           ···
         </span>
       </div>
@@ -62,7 +41,7 @@ export default function DeliveryStatusChart() {
       <svg
         width="100%"
         viewBox={`0 0 ${months.length * (GW + 14) + 30} ${H + 40}`}
-        style={{ overflow: "visible" }}
+        className="overflow-visible"
       >
         {[0, 10, 20, 30, 40].map((v) => {
           const y = H - (v / MAX) * H;
@@ -121,31 +100,17 @@ export default function DeliveryStatusChart() {
         })}
       </svg>
 
-      <div
-        style={{ display: "flex", gap: 14, marginTop: 12, flexWrap: "wrap" }}
-      >
-        {Object.entries(COLORS).map(([key, color]) => (
+      <div className="flex gap-3.5 mt-3 flex-wrap">
+        {legends.map((l) => (
           <div
-            key={key}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 5,
-              fontSize: 11,
-              color: "#888",
-            }}
+            key={l.key}
+            className="flex items-center gap-1.5 text-[11px] text-[#888]"
           >
             <div
-              style={{
-                width: 7,
-                height: 7,
-                borderRadius: "50%",
-                background: color,
-              }}
+              style={{ background: l.color }}
+              className="w-1.5 h-1.5 rounded-full"
             />
-            {key
-              .replace(/([A-Z])/g, " $1")
-              .replace(/^./, (s) => s.toUpperCase())}
+            {l.label}
           </div>
         ))}
       </div>

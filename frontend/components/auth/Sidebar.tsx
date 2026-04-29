@@ -16,191 +16,80 @@ const bottomNav = [
 
 export default function Sidebar() {
   return (
-    <aside
-      style={{
-        width: 220,
-        flexShrink: 0,
-        background: "#141414",
-        borderRight: "1px solid #1e1e1e",
-        display: "flex",
-        flexDirection: "column",
-        padding: "20px 14px",
-      }}
-    >
+    <aside className="w-[220px] shrink-0 bg-[#141414] border-r border-[#1e1e1e] flex flex-col p-3.5">
       {/* Logo */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: 10,
-          padding: "4px 8px 20px",
-        }}
-      >
-        <div style={{ display: "flex", gap: 3 }}>
+      <div className="flex items-center gap-2.5 px-2 pb-5">
+        <div className="flex gap-0.5">
           {[
             [1, 0.5],
             [0.5, 1],
           ].map((col, ci) => (
-            <div
-              key={ci}
-              style={{ display: "flex", flexDirection: "column", gap: 3 }}
-            >
+            <div key={ci} className="flex flex-col gap-0.5">
               {col.map((op, ri) => (
                 <div
                   key={ri}
-                  style={{
-                    width: 10,
-                    height: 10,
-                    borderRadius: "50%",
-                    background: "#ff2d2d",
-                    opacity: op,
-                  }}
+                  style={{ opacity: op }}
+                  className="w-2.5 h-2.5 rounded-full bg-[#ff2d2d]"
                 />
               ))}
             </div>
           ))}
         </div>
-        <span
-          style={{
-            fontFamily: "'Syne',sans-serif",
-            fontWeight: 800,
-            fontSize: 14,
-            letterSpacing: "0.1em",
-            color: "#f0f0f0",
-          }}
-        >
+        <span className="font-[var(--font-syne)] font-extrabold text-[13px] tracking-[0.1em] text-[#f0f0f0]">
           DEZENMART
         </span>
       </div>
 
       {/* Main nav */}
-      <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+      <nav className="flex flex-col gap-0.5">
         {mainNav.map((item) => (
           <button
             key={item.label}
-            className="dash-nav-btn"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 10,
-              padding: "10px 12px",
-              borderRadius: 10,
-              border: "none",
-              cursor: "pointer",
-              fontFamily: "'DM Sans',sans-serif",
-              fontSize: 13,
-              fontWeight: item.active ? 600 : 400,
-              background: item.active ? "#fff" : "transparent",
-              color: item.active ? "#111" : "#666",
-              textAlign: "left",
-              width: "100%",
-            }}
+            className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl border-none cursor-pointer text-[13px] text-left w-full transition-all font-[var(--font-dm)]
+              ${
+                item.active
+                  ? "bg-white text-[#111] font-semibold"
+                  : "bg-transparent text-[#666] font-normal hover:bg-white/5 hover:text-[#ccc]"
+              }`}
           >
-            <span style={{ fontSize: 15 }}>{item.icon}</span>
+            <span className="text-[15px]">{item.icon}</span>
             {item.label}
           </button>
         ))}
-      </div>
+      </nav>
 
-      <div style={{ flex: 1 }} />
+      <div className="flex-1" />
 
       {/* Bottom nav */}
-      <div
-        style={{
-          borderTop: "1px solid #222",
-          paddingTop: 12,
-          display: "flex",
-          flexDirection: "column",
-          gap: 2,
-        }}
-      >
+      <div className="border-t border-[#222] pt-3 flex flex-col gap-0.5">
         {bottomNav.map((item) => (
           <button
             key={item.label}
-            className="dash-nav-btn"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 10,
-              padding: "9px 12px",
-              borderRadius: 10,
-              border: "none",
-              cursor: "pointer",
-              fontFamily: "'DM Sans',sans-serif",
-              fontSize: 13,
-              background: "transparent",
-              color: "#555",
-              textAlign: "left",
-              width: "100%",
-            }}
+            className="flex items-center gap-2.5 px-3 py-2 rounded-xl border-none cursor-pointer text-[13px] text-left w-full bg-transparent text-[#555] hover:bg-white/5 hover:text-[#ccc] transition-all font-[var(--font-dm)]"
           >
-            <span style={{ fontSize: 14 }}>{item.icon}</span>
+            <span className="text-sm">{item.icon}</span>
             {item.label}
           </button>
         ))}
       </div>
 
       {/* Upgrade */}
-      <button
-        style={{
-          background: "#ff2d2d",
-          color: "#fff",
-          border: "none",
-          borderRadius: 10,
-          padding: "11px 0",
-          fontFamily: "'Syne',sans-serif",
-          fontWeight: 600,
-          fontSize: 13,
-          cursor: "pointer",
-          marginTop: 10,
-        }}
-      >
+      <button className="mt-2.5 bg-[#ff2d2d] text-white border-none rounded-xl py-2.5 font-[var(--font-syne)] font-semibold text-[13px] cursor-pointer tracking-wide hover:opacity-90 transition-opacity">
         Upgrade for Free
       </button>
 
       {/* User */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: 10,
-          padding: "12px 6px 2px",
-          borderTop: "1px solid #1e1e1e",
-          marginTop: 10,
-        }}
-      >
-        <div
-          style={{
-            width: 36,
-            height: 36,
-            borderRadius: "50%",
-            background: "#2a2a2a",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: 18,
-            border: "1.5px solid #333",
-          }}
-        >
+      <div className="flex items-center gap-2.5 pt-3 mt-2.5 border-t border-[#1e1e1e]">
+        <div className="w-9 h-9 rounded-full bg-[#2a2a2a] flex items-center justify-center text-lg border border-[#333]">
           🐵
         </div>
-        <div style={{ flex: 1 }}>
-          <p style={{ fontSize: 10, color: "#555", margin: 0 }}>
-            Welcome back 👋
-          </p>
-          <p
-            style={{
-              fontSize: 13,
-              fontWeight: 600,
-              color: "#e0e0e0",
-              margin: 0,
-              fontFamily: "'Syne',sans-serif",
-            }}
-          >
+        <div className="flex-1 min-w-0">
+          <p className="text-[10px] text-[#555] m-0">Welcome back 👋</p>
+          <p className="text-[13px] font-semibold text-[#e0e0e0] m-0 font-[var(--font-syne)] truncate">
             Johnathan
           </p>
         </div>
-        <span style={{ color: "#444", fontSize: 16 }}>›</span>
+        <span className="text-[#444] text-base">›</span>
       </div>
     </aside>
   );

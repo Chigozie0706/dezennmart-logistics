@@ -15,58 +15,27 @@ const toPath = (d: number[]) =>
         `${i === 0 ? "M" : "L"} ${(i / (N - 1)) * W} ${H - (v / MAX) * H}`,
     )
     .join(" ");
+
 const toArea = (d: number[]) =>
   `M 0,${H} L ${d.map((v, i) => `${(i / (N - 1)) * W},${H - (v / MAX) * H}`).join(" L ")} L ${W},${H} Z`;
 
 export default function LineChartWidget() {
   const [filter] = useState("Last 7 Days");
   return (
-    <div
-      style={{
-        background: "#1a1a1a",
-        border: "1px solid #222",
-        borderRadius: 14,
-        padding: "18px 20px",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginBottom: 16,
-        }}
-      >
-        <span
-          style={{
-            fontFamily: "'Syne',sans-serif",
-            fontWeight: 600,
-            fontSize: 14,
-            color: "#e0e0e0",
-          }}
-        >
+    <div className="bg-[#1a1a1a] border border-[#222] rounded-2xl p-5">
+      <div className="flex justify-between items-center mb-4">
+        <span className="font-[var(--font-syne)] font-semibold text-sm text-[#e0e0e0]">
           Header
         </span>
-        <button
-          style={{
-            background: "none",
-            border: "none",
-            color: "#888",
-            fontSize: 12,
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            gap: 4,
-          }}
-        >
-          {filter} ∨
+        <button className="bg-transparent border-none text-[#888] text-xs cursor-pointer flex items-center gap-1 hover:text-[#ccc] transition-colors">
+          {filter} <span>∨</span>
         </button>
       </div>
       <svg
         width="100%"
         viewBox={`-24 -8 ${W + 30} ${H + 30}`}
         preserveAspectRatio="none"
-        style={{ overflow: "visible" }}
+        className="overflow-visible"
       >
         {[0, 10, 20, 30, 40].map((v) => {
           const y = H - (v / MAX) * H;
