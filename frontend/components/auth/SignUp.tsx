@@ -6,6 +6,7 @@ import Label from "../Label";
 import Input from "../Input";
 import PrimaryBtn from "../PrimaryBtn";
 import SocialLogin from "../SocialLogin";
+import { useRouter } from "next/navigation";
 
 interface Props {
   onLogin: () => void;
@@ -13,6 +14,7 @@ interface Props {
 
 export default function SignUp({ onLogin }: Props) {
   const [agreed, setAgreed] = useState(false);
+  const router = useRouter();
 
   return (
     <div className="flex flex-col flex-1">
@@ -69,7 +71,7 @@ export default function SignUp({ onLogin }: Props) {
       <p className="text-center text-[12.5px] text-[#777] mt-3">
         Already have an account?{" "}
         <button
-          onClick={onLogin}
+          onClick={() => router.push("/login")}
           className="text-[#ff2d2d] font-semibold bg-transparent border-none cursor-pointer hover:opacity-75 transition-opacity"
         >
           Login

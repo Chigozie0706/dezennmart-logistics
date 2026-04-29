@@ -4,6 +4,7 @@ import Label from "../Label";
 import Input from "../Input";
 import PrimaryBtn from "../PrimaryBtn";
 import SocialLogin from "../SocialLogin";
+import { useRouter } from "next/navigation";
 
 interface Props {
   onBack: () => void;
@@ -11,10 +12,12 @@ interface Props {
 }
 
 export default function ForgotPasswordScreen({ onBack, onSubmit }: Props) {
+  const router = useRouter();
+
   return (
     <div className="flex flex-col flex-1">
       <button
-        onClick={onBack}
+        onClick={() => router.push("/login")}
         className="text-[12.5px] text-[#888] bg-transparent border-none cursor-pointer text-left mb-2 hover:text-[#ff2d2d] transition-colors w-fit"
       >
         ← Back to login

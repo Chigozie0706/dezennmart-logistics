@@ -6,6 +6,7 @@ import Label from "../Label";
 import Input from "../Input";
 import PrimaryBtn from "../PrimaryBtn";
 import SocialLogin from "../SocialLogin";
+import { useRouter } from "next/navigation";
 
 interface Props {
   onForgot: () => void;
@@ -15,6 +16,7 @@ interface Props {
 export default function Login({ onForgot, onSignup }: Props) {
   const [showPassword, setShowPassword] = useState(false);
   const [remember, setRemember] = useState(false);
+  const router = useRouter();
 
   return (
     <div className="flex flex-col flex-1">
@@ -54,7 +56,7 @@ export default function Login({ onForgot, onSignup }: Props) {
           <span className="text-[12.5px] text-[#aaa]">Remember me</span>
         </label>
         <button
-          onClick={onForgot}
+          onClick={() => router.push("/forget_password")}
           className="text-[12.5px] text-[#ff2d2d] bg-transparent border-none cursor-pointer hover:opacity-75 transition-opacity"
         >
           Forgot Password?
@@ -66,7 +68,7 @@ export default function Login({ onForgot, onSignup }: Props) {
       <p className="text-center text-[12.5px] text-[#777] mt-3">
         Don&apos;t have an account?{" "}
         <button
-          onClick={onSignup}
+          onClick={() => router.push("/sign_up")}
           className="text-[#ff2d2d] font-semibold bg-transparent border-none cursor-pointer hover:opacity-75 transition-opacity"
         >
           Sign up
