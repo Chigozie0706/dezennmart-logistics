@@ -5,7 +5,14 @@ import AuthCard from "@/components/auth/AuthCard";
 export default function AuthPage() {
   return (
     <AuthCard screen="verify">
-      <VerifyCode />
+      <VerifyCode
+        onBack={function (): void {
+          throw new Error("Function not implemented.");
+        }}
+        onSubmit={function (): void {
+          throw new Error("Function not implemented.");
+        }}
+      />
     </AuthCard>
   );
 }
