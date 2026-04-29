@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #0a0a0a;
+  --color-foreground: #ededed;
+  --font-syne: 'Syne', sans-serif;
+  --font-dm: 'DM Sans', sans-serif;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-brand: #ff2d2d;
+}
+
+body {
+  background: #0a0a0a;
+  color: #ededed;
+  font-family: 'DM Sans', sans-serif;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #1a1a1a inset !important;
+  -webkit-text-fill-color: #e0e0e0 !important;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+.input-field {
+  transition: border-color 0.15s;
+}
+.input-field:focus {
+  border-color: #ff2d2d !important;
+  outline: none;
+}
+
+.otp-input {
+  letter-spacing: 0.35em;
+  font-family: 'Syne', sans-serif;
+}
+
+.dash-nav-btn {
+  transition: background 0.15s, color 0.15s;
+}
+.dash-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #ccc !important;
+}
+
+.stat-card {
+  transition: border-color 0.2s;
+}
+.stat-card:hover {
+  border-color: #333 !important;
+}
