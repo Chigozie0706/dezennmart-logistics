@@ -1,7 +1,7 @@
 "use client";
 
 import Sidebar from "./Sidebar";
-import StatCards from "./StatCards";
+
 import DeliveryStatusChart from "./DeliveryStatusChart";
 import LineChartWidget from "./LineChartWidget";
 import TopRiders from "./TopRiders";
