@@ -1,11 +1,11 @@
 "use client";
 
 import Sidebar from "./Sidebar";
-
 import DeliveryStatusChart from "./DeliveryStatusChart";
 import LineChartWidget from "./LineChartWidget";
 import TopRiders from "./TopRiders";
 import MapWidget from "./MapWidget";
+import StatCards from "./StatCards";
 
 export default function Dashboard() {
   return (
