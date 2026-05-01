@@ -5,7 +5,7 @@ import DeliveryStatusChart from "./DeliveryStatusChart";
 import LineChartWidget from "./LineChartWidget";
 import TopRiders from "./TopRiders";
 import MapWidget from "./MapWidget";
-import StatCards from "./StatCards";
+import StarsC from "./StarsC";
 
 export default function Dashboard() {
   return (
@@ -29,7 +29,7 @@ export default function Dashboard() {
 
         {/* Scrollable content */}
         <div className="flex-1 overflow-y-auto px-7 py-6 flex flex-col gap-5">
-          <StatCards />
+          <StarsC />
 
           <div className="grid grid-cols-2 gap-3.5">
             <DeliveryStatusChart />

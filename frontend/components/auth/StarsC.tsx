@@ -35,7 +35,7 @@ const stats = [
   },
 ];
 
-export default function StatCards() {
+export default function StarsC() {
   return (
     <div className="grid grid-cols-4 gap-3.5">
       {stats.map((s) => (
