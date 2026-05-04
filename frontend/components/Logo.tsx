@@ -7,7 +7,7 @@ export default function Logo() {
         </span>
       </div>
       <span className="font-syne font-extrabold text-[13px] tracking-[0.12em] text-[#e0e0e0]">
-        DEZENMART
+        DEZENEXPRESS
       </span>
     </div>
   );
